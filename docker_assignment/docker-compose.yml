@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  productservice:
+    build: ./productservice
+    image: productservice:latest
+    container_name: spring-boot-service
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATA_MONGODB_HOST: javatechiemongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: javatechiemongodb
+    depends_on:
+      - javatechiemongodb
+      - redis-service
+    networks:
+      - app-network
+  javatechiemongodb:
+    image: mongo:6.0.3
+    container_name: javatechiemongodb
+    ports:
+      - 27017:27017
+    networks:
+      - app-network
+  redis-service:
+    image: redis:7.2
+    container_name: redis-service
+    ports:
+      - 6379:6379
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
