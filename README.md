@@ -1,5 +1,5 @@
 # Docker-Assignment
-Install wsl docker on your system
+Install wsl docker, mongodb database and redis on your system
 Open wsl commond prompt
 Stop all running containers + Remove All Containers and images with below docker commands
 docker stop $(docker ps -aq)
