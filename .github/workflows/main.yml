@@ -50,4 +50,4 @@ jobs:
       # Step 8: Push Docker Images
       - name: Push Docker Images
         run: |
-          docker push javadev399/dockerjavadev399/productservice:latest
+          docker push javadev399/productservice:latest
