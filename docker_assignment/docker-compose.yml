@@ -3,7 +3,7 @@ version: '3'
 services:
   productservice:
     build: ./productservice
-    image: javadev399/dockerjavadev399/productservice:latest
+    image: javadev399/productservice:latest
     container_name: spring-boot-service
     ports:
       - 8080:8080
