@@ -31,15 +31,22 @@ jobs:
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
-      # Step 5: Build the Docker image
+      # Step 5: Build the application JAR
+      - name: Build JAR file
+        run: |
+          cd ./docker_assignment/productservice
+          mvn clean package -DskipTests
+
+      # Step 6: Build the Docker image
       - name: Build Docker Image
         run: docker-compose build
+        working-directory: ./docker_assignment
 
-      # Step 6: Verify Docker images are built
+      # Step 7: Verify Docker images are built
       - name: Verify Docker Images
         run: |
           docker images
-      # Step 7: Push Docker Images
+      # Step 8: Push Docker Images
       - name: Push Docker Images
         run: |
           docker push javadev399/dockerjavadev399/productservice:latest
