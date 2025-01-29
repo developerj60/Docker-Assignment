@@ -1,10 +1,10 @@
 name: Docker CI/CD
 
-# Trigger the workflow on code push to the main branch
+# Trigger the workflow on code push to the dev branch
 on:
   push:
     branches:
-      - develop
+      - dev
 
 # Define the workflow jobs
 jobs:
