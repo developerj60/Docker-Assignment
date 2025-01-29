@@ -3,7 +3,7 @@ version: '3'
 services:
   productservice:
     build: ./productservice
-    image: productservice:latest
+    image: javadev399/dockerjavadev399/productservice:latest
     container_name: spring-boot-service
     ports:
       - 8080:8080
@@ -21,6 +21,8 @@ services:
     container_name: javatechiemongodb
     ports:
       - 27017:27017
+    volumes:
+      - db_data:/var/lib/mysql
     networks:
       - app-network
   redis-service:
@@ -34,3 +36,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  db_data:
