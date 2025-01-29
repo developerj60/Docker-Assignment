@@ -32,8 +32,11 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
       # Step 5: Build the Docker image
+      - name: List files
+        run: ls -R
       - name: Build Docker Image
         run: docker-compose build
+        working-directory: ./docker_assignment
 
       # Step 6: Verify Docker images are built
       - name: Verify Docker Images
