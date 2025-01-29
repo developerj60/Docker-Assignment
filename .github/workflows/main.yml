@@ -34,7 +34,7 @@ jobs:
       # Step 5: Build the application JAR
       - name: Build JAR file
         run: |
-          cd productservice
+          cd ./docker_assignment/productservice
           mvn clean package -DskipTests
 
       # Step 6: Build the Docker image
